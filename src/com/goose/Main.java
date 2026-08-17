@@ -15,26 +15,22 @@ public class Main {
 //        Get data from user for calculation
         System.out.print("Principal: ");
         int principal = scanner.nextInt();
-
+//        Receive interest rate and convert to usable format
         System.out.print("Annual Interest Rate: ");
         float interestRate = scanner.nextFloat();
         interestRate = (interestRate / PERCENT) / MONTHS_IN_YEAR;
-
+//        Receive Period of payments and convert into number of monthly payments
         System.out.print("Period (Years): ");
         byte period = scanner.nextByte();
         int numberOfPayments = period * MONTHS_IN_YEAR;
 
+//        Calculate monthly payments using mortgage equation
         double mortgage = principal
                 * ((interestRate * (Math.pow(1+interestRate, numberOfPayments)
                 / (Math.pow(1+interestRate, numberOfPayments) - 1 ))));
 
+//        convert payment into currency and output to the user
         NumberFormat currency = NumberFormat.getCurrencyInstance();
         System.out.println("Mortgage: " + currency.format(mortgage));
     }
 }
-
-
-// Principal
-// Annual Interest rate
-//Period (YEars)
-// Mortgage
